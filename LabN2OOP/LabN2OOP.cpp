@@ -4,7 +4,7 @@ using namespace std;
 
 class Point {	// Интерфейс
 protected:
-	virtual void get() = NULL;	// Виртуальный метод вывода
+	virtual void print() = NULL;	// Виртуальный метод вывода
 
 public:
 	Point() {	// Конструктор
@@ -42,9 +42,10 @@ public:
 	void set(double x, double y) {	// Установка значений
 		this->x = x;
 		this->y = y;
+		cout << "Point2D set\n";
 	}
-	void get() {	// Вывод
-		cout << "x=" << this->x << " , y=" << this->y << " , dist=" << getdist();
+	void print() {	// Вывод
+		cout << "x=" << this->x << " , y=" << this->y << " , dist=" << getdist() << endl;
 	}
 	void setX(double x) {	// Утановка x
 		this->x = x;
@@ -92,9 +93,10 @@ public:
 		this->x = x;
 		this->y = y;
 		this->z = z;
+		cout << "Point3D set\n";
 	}
-	void get() {	// Вывод
-		cout << "x=" << this->x << " , y=" << this->y << " , z=" << this->z << " , dist=" << getdist();
+	void print() {	// Вывод
+		cout << "x=" << this->x << " , y=" << this->y << " , z=" << this->z << " , dist=" << getdist() << endl;
 	}
 	void setZ(double z) {	// Утановка z
 		this->z = z;
@@ -105,6 +107,66 @@ public:
 private:
 	double getdist() {	// Получение расстояния до центра
 		return sqrt(x * x + y * y + z * z);
+	}
+};
+
+class Line {	// Интерфейс
+protected:
+	virtual void print() = NULL;	// Виртуальный метод вывода
+
+public:
+	Line() {	// Конструктор
+		cout << "Line construct\n";
+	}
+	~Line() {	// Деструктор
+		cout << "Line destruct\n";
+	}
+};
+
+class Line2D : public Line {
+protected:
+	Point2D p1;
+	Point2D p2;
+public:
+	Line2D() {	// Конструктор
+		cout << "Line2D construct\n";
+	}
+	Line2D(Point2D p1, Point2D p2) {	// Конструктор
+		this->p1 = p1;
+		this->p2 = p2;
+		cout << "Line2D construct\n";
+	}
+	Line2D(const Line2D& l) {	// Конструктор копирования
+		p1 = l.p1;
+		p2 = l.p2;
+		cout << "Line2D construct copy\n";
+	}
+	~Line2D() {	// Деструктор
+		cout << "Line2D destruct\n";
+	}
+	void set(Point2D p1, Point2D p2) {	// Установка значений
+		this->p1 = p1;
+		this->p2 = p2;
+		cout << "Line2D set\n";
+	}
+	void print() {	// Вывод
+		cout << "p1: ";
+		this->p1.print();
+		cout << "p2: ";
+		this->p1.print();
+		cout << endl;
+	}
+	void setP1(Point2D p1) {	// Утановка p1
+		this->p1 = p1;
+	}
+	void setP2(Point2D p2) {	// Утановка p2
+		this->p2 = p2;
+	}
+	Point2D getP1() {	// Получение p1
+		return p1;
+	}
+	Point2D getP2() {	// Получение p2
+		return p2;
 	}
 };
 
