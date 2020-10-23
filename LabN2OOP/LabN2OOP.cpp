@@ -127,6 +127,7 @@ class Line2D : public Line {
 protected:
 	Point2D p1;
 	Point2D p2;
+
 public:
 	Line2D() {	// Конструктор
 		cout << "Line2D construct\n";
@@ -154,7 +155,6 @@ public:
 		this->p1.print();
 		cout << "p2: ";
 		this->p1.print();
-		cout << endl;
 	}
 	void setP1(Point2D p1) {	// Утановка p1
 		this->p1 = p1;
