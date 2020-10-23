@@ -8,10 +8,10 @@ protected:
 
 public:
 	Point() {	// Конструктор
-		cout << "Point construct\n";
+		cout << "Point()\n";
 	}
 	~Point() {	// Деструктор
-		cout << "Point destruct\n";
+		cout << "~Point()\n";
 	}
 };
 
@@ -24,25 +24,24 @@ public:
 	Point2D() {	// Конструктор
 		x = 0;
 		y = 0;
-		cout << "Point2D construct\n";
+		cout << "Point2D()\n";
 	}
 	Point2D(double x, double y) {	// Конструктор
 		this->x = x;
 		this->y = y;
-		cout << "Point2D construct\n";
+		cout << "Point2D(double x, double y)\n";
 	}
 	Point2D(const Point2D& p) {	// Конструктор копирования
 		x = p.x;
 		y = p.y;
-		cout << "Point2D construct copy\n";
+		cout << "Point2D(const Point2D& p)\n";
 	}
 	~Point2D() {	// Деструктор
-		cout << "Point2D destruct\n";
+		cout << "~Point2D()\n";
 	}
 	void set(double x, double y) {	// Установка значений
 		this->x = x;
 		this->y = y;
-		cout << "Point2D set\n";
 	}
 	void print() {	// Вывод
 		cout << "x=" << this->x << " , y=" << this->y << " , dist=" << getdist() << endl;
@@ -72,28 +71,27 @@ protected:
 public:
 	Point3D() {	// Конструктор
 		z = 0;
-		cout << "Point3D construct\n";
+		cout << "Point3D()\n";
 	}
 	Point3D(double x, double y, double z) {	// Конструктор
 		this->x = x;
 		this->y = y;
 		this->z = z;
-		cout << "Point3D construct\n";
+		cout << "Point3D(double x, double y, double z)\n";
 	}
 	Point3D(const Point3D& p) {	// Конструктор копирования
 		x = p.x;
 		y = p.y;
 		z = p.z;
-		cout << "Point3D construct copy\n";
+		cout << "Point3D(const Point3D& p)\n";
 	}
 	~Point3D() {	// Деструктор
-		cout << "Point3D destruct\n";
+		cout << "~Point3D()\n";
 	}
 	void set(double x, double y, double z) {	// Установка значений
 		this->x = x;
 		this->y = y;
 		this->z = z;
-		cout << "Point3D set\n";
 	}
 	void print() {	// Вывод
 		cout << "x=" << this->x << " , y=" << this->y << " , z=" << this->z << " , dist=" << getdist() << endl;
@@ -116,10 +114,10 @@ protected:
 
 public:
 	Line() {	// Конструктор
-		cout << "Line construct\n";
+		cout << "Line()\n";
 	}
 	~Line() {	// Деструктор
-		cout << "Line destruct\n";
+		cout << "~Line()\n";
 	}
 };
 
@@ -130,25 +128,24 @@ protected:
 
 public:
 	Line2D() {	// Конструктор
-		cout << "Line2D construct\n";
+		cout << "Line2D()\n";
 	}
 	Line2D(Point2D p1, Point2D p2) {	// Конструктор
 		this->p1 = p1;
 		this->p2 = p2;
-		cout << "Line2D construct\n";
+		cout << "Line2D(Point2D p1, Point2D p2)\n";
 	}
 	Line2D(const Line2D& l) {	// Конструктор копирования
 		p1 = l.p1;
 		p2 = l.p2;
-		cout << "Line2D construct copy\n";
+		cout << "Line2D(const Line2D& l)\n";
 	}
 	~Line2D() {	// Деструктор
-		cout << "Line2D destruct\n";
+		cout << "~Line2D()\n";
 	}
 	void set(Point2D p1, Point2D p2) {	// Установка значений
 		this->p1 = p1;
 		this->p2 = p2;
-		cout << "Line2D set\n";
 	}
 	void print() {	// Вывод
 		cout << "p1: ";
