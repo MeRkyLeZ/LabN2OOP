@@ -123,46 +123,54 @@ public:
 
 class Line2D : public Line {
 protected:
-	Point2D p1;
-	Point2D p2;
+	Point2D* p1;
+	Point2D* p2;
 
 public:
 	Line2D() {	// Конструктор
+		p1 = new Point2D;
+		p2 = new Point2D;
 		cout << "Line2D()\n";
 	}
-	Line2D(Point2D p1, Point2D p2) {	// Конструктор
-		this->p1 = p1;
-		this->p2 = p2;
-		cout << "Line2D(Point2D p1, Point2D p2)\n";
+	Line2D(double x1, double y1, double x2, double y2) {	// Конструктор
+		p1 = new Point2D(x1, y1);
+		p2 = new Point2D(x2, y2);
+		cout << "Line2D(double x1, double y1, double x2, double y2)\n";
 	}
 	Line2D(const Line2D& l) {	// Конструктор копирования
-		p1 = l.p1;
-		p2 = l.p2;
+		p1 = new Point2D(*(l.p1));
+		p2 = new Point2D(*(l.p2));
 		cout << "Line2D(const Line2D& l)\n";
 	}
 	~Line2D() {	// Деструктор
+		delete p1;
+		delete p2;
 		cout << "~Line2D()\n";
-	}
-	void set(Point2D p1, Point2D p2) {	// Установка значений
-		this->p1 = p1;
-		this->p2 = p2;
 	}
 	void print() {	// Вывод
 		cout << "p1: ";
-		this->p1.print();
+		(*p1).print();
 		cout << "p2: ";
-		this->p1.print();
+		(*p2).print();
 	}
-	void setP1(Point2D p1) {	// Утановка p1
-		this->p1 = p1;
+	void set(Point2D* p1, Point2D* p2) {	// Установка значений
+		delete this->p1;
+		delete this->p2;
+		this->p1 = new Point2D(*p1);
+		this->p2 = new Point2D(*p2);
 	}
-	void setP2(Point2D p2) {	// Утановка p2
-		this->p2 = p2;
+	void setP1(Point2D* p1) {	// Утановка p1
+		delete this->p1;
+		this->p1 = new Point2D(*p1);;
 	}
-	Point2D getP1() {	// Получение p1
+	void setP2(Point2D* p2) {	// Утановка p2
+		delete this->p2;
+		this->p2 = new Point2D(*p2);;
+	}
+	Point2D* getP1() {	// Получение p1
 		return p1;
 	}
-	Point2D getP2() {	// Получение p2
+	Point2D* getP2() {	// Получение p2
 		return p2;
 	}
 };
