@@ -177,6 +177,38 @@ public:
 
 int main()
 {
-
+	setlocale(LC_ALL, "Russian");
+	int code = 0;
+	while (1) {
+		cout << "Введите код (1-5):";
+		cin >> code;
+		cout << endl;
+		system("cls");
+		switch (code) {
+		case 1: {	// Статическое создание и удаление объекта
+			Point2D point;
+		} break;
+		case 2: {	// Динамическое создание и удаление объекта
+			Point2D* point = new Point2D;
+			delete point;
+		} break;
+		case 3: {	// Помещение объектов в переменные различных типов 
+			Point2D* point2D = new Point3D;
+			Point3D* point3D = new Point3D;
+			point2D->set(1, 2);
+			point3D->set(1, 2, 3);
+			delete point2D;
+			delete point3D;
+		} break;
+		case 4: {	// Создание и удаление класса-наследника Point2D
+			Point3D point;
+		} break;
+		case 5: {	// Композиция объектов
+			Line2D ln;
+			ln.print();
+		} break;
+		default: return 0;
+		}
+	}
 	return 0;
 }
